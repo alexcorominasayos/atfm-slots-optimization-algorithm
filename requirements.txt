@@ -1,6 +1,4 @@
-# Developed and tested with Python 3.12, numpy 2.4, pandas 3.0, scipy 1.17 and matplotlib 3.10.
-# scipy 1.9 is the first version with scipy.optimize.milp, which the GHP needs.
-numpy>=1.23
-pandas>=1.5
-scipy>=1.9
-matplotlib>=3.5
+numpy
+pandas
+scipy
+matplotlib

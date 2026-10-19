@@ -21,6 +21,3 @@ Thumbs.db
 
 # Written by substitute_flights.py, so it is created again whenever you run it
 Data/EDDM_reduced_demand.csv
-
-# Uncomment the next line if the data cannot be published
-# Data/*.csv
