@@ -34,18 +34,18 @@ def compute_fuel_ask(distance_km: float, available_seats: int, force: bool = Fal
         if available_seats >= 172 and distance_km < 200 and not force:
             raise ValueError("Flights under 200 km are invalid for aircraft with 172+ seats")
 
-    def should_use_eq3():
+    def is_large_aircraft():
         if not force:
             return 172 <= available_seats <= 365 and 200 <= distance_km <= 12000
         return available_seats >= 172 or abs(available_seats - 172) < abs(available_seats - 50)
 
     validate_inputs()
-    use_eq3 = should_use_eq3()
+    large_aircraft = is_large_aircraft()
     
     if distance_km == 0:
         return 0
     else: 
-        if use_eq3:
+        if large_aircraft:
             # Equation 3
             fuel_ask = (
                 0.7361 + 6651 / distance_km + 5.989e-4 * distance_km +
@@ -133,18 +133,18 @@ def compute_nox_ask(distance_km: float, available_seats: int, force: bool = Fals
         if available_seats >= 172 and distance_km < 200 and not force:
             raise ValueError("Flights under 200 km are invalid for aircraft with 172+ seats")
 
-    def should_use_eq5():
+    def is_large_aircraft():
         if not force:
             return 172 <= available_seats <= 365 and 200 <= distance_km <= 12000
         return available_seats >= 172 or abs(available_seats - 172) < abs(available_seats - 50)
 
     validate_inputs()
-    use_eq5 = should_use_eq5()
+    large_aircraft = is_large_aircraft()
 
     if distance_km == 0:
         return 0
     else:
-        if use_eq5:
+        if large_aircraft:
             # Equation 5
             nox_ask = (
                 -1.427 + 152.1 / distance_km + 143.5 / available_seats +
@@ -183,18 +183,18 @@ def compute_co_ask(distance_km: float, available_seats: int, force: bool = False
         if not (200 <= distance_km <= 12000) and not force:
             raise ValueError("Distance out of range (200 - 12,000 km)")
 
-    def should_use_eq7():
+    def is_large_aircraft():
         if not force:
             return 172 <= available_seats <= 365 and 200 <= distance_km <= 12000
         return available_seats >= 172 or abs(available_seats - 172) < abs(available_seats - 50)
 
     validate_inputs()
-    use_eq7 = should_use_eq7()
+    large_aircraft = is_large_aircraft()
 
     if distance_km == 0:
         return 0
     else:
-        if use_eq7:
+        if large_aircraft:
             # Equation 7
             co_ask = (
                 -0.5736 + 65.11 / distance_km + 51.85 / available_seats +
