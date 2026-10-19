@@ -4,6 +4,8 @@ Replaces GHP.py, GHP_reduced.py, ComputeCost_GHP.py, ComputeEmissions_GHP.py,
 CompareDelayReduction_GHP.py and ComputeCostEmissionsReduced.py.
 Run substitute_flights.py first (it writes the reduced demand), then:  python run_ghp.py
 """
+import sys
+
 import pandas as pd
 
 import reports
@@ -72,4 +74,8 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    try:
+        run()
+    except FileNotFoundError as error:
+        print(f"Error: Run substitute_flights.py first", file=sys.stderr)
+        raise SystemExit(1) from error

@@ -46,7 +46,5 @@ def load_reduced_arcids(path=REDUCED_DEMAND_CSV):
 
     Old files wrote 'DLH_4AB' where the arrivals file says 'DLH4AB', so the underscore is dropped.
     """
-    if not Path(path).exists():
-        raise FileNotFoundError(f"{path} not found: run substitute_flights.py first")
     arcids = pd.read_csv(path, dtype=str)["ARCID"]
     return set(arcids.str.strip().str.upper().str.replace("_", "", regex=False))
