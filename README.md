@@ -135,7 +135,7 @@ model. Change them there and run the scripts again.
 ## Contributors
 
 * **Àlex Coromina Sayós** - [@alexcorominasayos](https://github.com/alexcorominasayos)
-* **Jan Rosés Puigdomènech**
+* **Jan Rosés Puigdomènech** [@janrosesupc](https://github.com/janrosesupc)
 * **Jordán Frank Soto Huarcaya** - [@jordanfranksoto-netizen](https://github.com/jordanfranksoto-netizen)
 
 ## License
